@@ -27,4 +27,11 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+    <actions>
+        <action id="org.chen.liang.actions.PopupDialogAction" class="org.chen.liang.actions.PopupDialogAction" text="Pop Dialog Action"
+                description="Pop dialog action example" icon="org.chen.liang.icons.Icons.Sdk_icon">
+            <override-text place="MainMenu" text="Pop Dialog"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
