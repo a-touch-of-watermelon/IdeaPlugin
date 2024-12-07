@@ -1,4 +1,4 @@
-package org.chen.liang.actions;
+package me.watermelon.actions;
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
