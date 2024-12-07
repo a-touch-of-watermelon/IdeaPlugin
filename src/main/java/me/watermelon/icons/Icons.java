@@ -1,4 +1,4 @@
-package org.chen.liang.icons;
+package me.watermelon.icons;
 
 import com.intellij.openapi.util.IconLoader;
 
