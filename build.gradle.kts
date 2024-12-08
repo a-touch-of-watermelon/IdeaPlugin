@@ -1,47 +1,59 @@
-plugins {
-    id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.23"
-    id("org.jetbrains.intellij") version "1.17.2"
-}
-
 group = "me.watermelon"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
-// Configure Gradle IntelliJ Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
-intellij {
-    version.set("2023.2.5")
-    type.set("IC") // Target IDE Platform
-
-    plugins.set(listOf(/* Plugin Dependencies */))
+plugins {
+    id("java") //A Gradle Core plugin: Provides support for building Java projects.
+    kotlin("jvm")
+    id("org.jetbrains.intellij.platform") version "2.1.0"
 }
 
-tasks {
-    // Set the JVM compatibility versions
-    withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
+dependencies {
+    //IntelliJ Platform Gradle Plugin enhances the dependencies {} configuration block by applying a nested dependencies.intellijPlatform {} extension.
+    intellijPlatform {
+        intellijIdeaCommunity("2024.2") //Target IDE Platform and Version
+        bundledPlugin("com.intellij.java")
+        bundledPlugin("Git4Idea")
+        javaCompiler()
     }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
+    implementation(kotlin("stdlib-jdk8"))
+}
+
+//The IntelliJ Platform Gradle Plugin introduces a top-level intellijPlatform extension
+intellijPlatform {
+    pluginConfiguration {
+        ideaVersion {
+            sinceBuild.set("242")
+            untilBuild.set("243.*")//年份后两位 + 大版本号 + 小数点 + 小版本号
+        }
     }
 
-    patchPluginXml {
-        sinceBuild.set("232")
-        untilBuild.set("242.*")
-    }
-
-    signPlugin {
+    signing {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
         privateKey.set(System.getenv("PRIVATE_KEY"))
         password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
     }
 
-    publishPlugin {
+    publishing {
         token.set(System.getenv("PUBLISH_TOKEN"))
+    }
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+//register a single task called "hello"
+tasks.register("hello") {
+    group = "custom"
+    description = "A lovely greeting task."
+    doLast {
+        println("Hello world!")
     }
 }

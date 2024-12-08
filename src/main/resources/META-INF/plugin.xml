@@ -5,28 +5,32 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>IdeaPlugin</name>
+    <name>Watermelon</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="1945516094@qq.com" url="none">YourCompany</vendor>
+    <vendor email="1945516094@qq.com">watermelon</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+        watermelon plugin.<br>
+        <em>西瓜一抹的插件，自己做一些小功能用，也有益于提升研发能力</em>
+      ]]>
+    </description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+    <depends>Git4Idea</depends>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <backgroundPostStartupActivity implementation="me.watermelon.startup.GitFetchProjectActivity" order="last"/>
     </extensions>
+
     <actions>
         <action id="me.watermelon.actions.PopupDialogAction" class="me.watermelon.actions.PopupDialogAction" text="Pop Dialog Action"
                 description="Pop dialog action example" icon="me.watermelon.icons.Icons.Sdk_icon">
