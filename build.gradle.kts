@@ -9,11 +9,15 @@ repositories {
 }
 
 plugins {
-    id("java") //A Gradle Core plugin: Provides support for building Java projects.
-    kotlin("jvm")
+    // A Gradle Core plugin: Provides support for building Java projects. Core plugins must be specified without a version number。
+    // The plugin adds many dependency configurations, such as 'implementation', 'testImplementation' and so on for dependencies,
+    //   https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management
+    id("java")
+    kotlin("jvm") //Kotlin DSL的扩展写法
     id("org.jetbrains.intellij.platform") version "2.1.0"
 }
 
+//https://docs.gradle.org/current/userguide/dependency_configurations.html
 dependencies {
     //IntelliJ Platform Gradle Plugin enhances the dependencies {} configuration block by applying a nested dependencies.intellijPlatform {} extension.
     intellijPlatform {
@@ -22,7 +26,7 @@ dependencies {
         bundledPlugin("Git4Idea")
         javaCompiler()
     }
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib-jdk8")) //implementation: Dependencies required for both compilation and runtime.
 }
 
 //The IntelliJ Platform Gradle Plugin introduces a top-level intellijPlatform extension

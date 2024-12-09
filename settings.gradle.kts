@@ -1,7 +1,7 @@
 pluginManagement {
     repositories {
         mavenCentral()
-        gradlePluginPortal()
+        gradlePluginPortal() //Non-core plugins are available from the Gradle Plugin Portal
     }
     plugins {
         kotlin("jvm") version "2.0.21"
