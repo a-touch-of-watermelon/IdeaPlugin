@@ -1,9 +1,9 @@
 group = "me.watermelon"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
-    intellijPlatform {
+    intellijPlatform {//与dependencies块中的intellijPlatform块结合使用
         defaultRepositories()
     }
 }

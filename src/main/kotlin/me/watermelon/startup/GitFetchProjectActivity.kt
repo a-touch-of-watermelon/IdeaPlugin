@@ -13,14 +13,6 @@ import git4idea.fetch.GitFetchSupport
  */
 class GitFetchProjectActivity : ProjectActivity {
     override suspend fun execute(project: Project) {
-        val task = Runnable {
-            val fetchSupport = GitFetchSupport.fetchSupport(project)
-            val repositories = GitUtil.getRepositories(project)
-            val gitFetchResult = fetchSupport.fetchAllRemotes(repositories)
-            gitFetchResult.showNotification()
-        }
-
-        val application = ApplicationManager.getApplication()
-        application.executeOnPooledThread(task)
+        GitFetchProject.execute(project)
     }
 }
