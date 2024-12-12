@@ -24,7 +24,7 @@ dependencies {
         intellijIdeaCommunity("2024.2") //Target IDE Platform and Version
         bundledPlugin("com.intellij.java")
         bundledPlugin("Git4Idea")
-        javaCompiler()
+        instrumentationTools()//if not,execution failed for task ':instrumentCode'.
     }
     implementation(kotlin("stdlib")) //implementation: Dependencies required for both compilation and runtime.
 }
@@ -50,6 +50,7 @@ intellijPlatform {
 }
 
 kotlin {
+    //Set the JVM language level used to build the project.
     jvmToolchain(17)
 }
 
