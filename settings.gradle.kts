@@ -1,3 +1,4 @@
+//插件开发模版 https://plugins.jetbrains.com/docs/intellij/plugin-github-template.html
 pluginManagement {
     repositories {
         mavenCentral()

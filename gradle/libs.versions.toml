@@ -1,6 +1,23 @@
-#Gradle version catalog for dependency management
-[versions]
+#Gradle version catalog for dependency management https://docs.gradle.org/current/userguide/version_catalogs.html
+# The TOML file format https://toml.io/（A config file format for humans.）
 
-[libraries]
+#reference a version declared in the [versions] section, use the version.ref property
+[versions] #to declare the version numbers that plugins and libraries will reference
+#libraries
 
-[plugins]
+#plugins
+intelliJPlatform = '2.1.0'
+kotlin = '2.0.21'
+
+#to access items in a version catalog defined in the standard libs.versions.toml file located in the gradle directory,
+# you use the libs object in your build scripts.
+# For example, to reference a library, you can use libs.<alias>, and for a plugin, you can use libs.plugins.<alias>.
+[libraries] #to define the libraries used in the build files
+
+
+[bundles] #to define a set of dependencies
+
+
+[plugins] #to define plugins
+intelliJPlatform = { id = "org.jetbrains.intellij.platform", version.ref = "intelliJPlatform" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
