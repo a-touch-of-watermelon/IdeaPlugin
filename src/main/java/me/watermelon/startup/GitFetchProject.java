@@ -18,14 +18,11 @@ class GitFetchProject {
 
     static void execute(Project project) {
         Runnable runnable = () -> {
-            try {
-                GitFetchSupport gitFetchSupport = GitFetchSupport.fetchSupport(project);
-                Collection<GitRepository> repositories = GitUtil.getRepositories(project);
-                GitFetchResult gitFetchResult = gitFetchSupport.fetchAllRemotes(repositories);
-                gitFetchResult.showNotification();
-            } catch (Exception e) {//避免异常被展示
-                LOG.error("自动提取仓库远程变动", e);
-            }
+            GitFetchSupport gitFetchSupport = GitFetchSupport.fetchSupport(project);
+            Collection<GitRepository> repositories = GitUtil.getRepositories(project);
+            GitFetchResult gitFetchResult = gitFetchSupport.fetchAllRemotes(repositories);
+            gitFetchResult.showNotification();
+            LOG.info("自动提取仓库远程变动-成功");
         };
 
         Application application = ApplicationManager.getApplication();
