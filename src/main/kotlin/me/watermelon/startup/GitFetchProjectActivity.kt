@@ -7,8 +7,9 @@ import git4idea.GitUtil
 import git4idea.fetch.GitFetchSupport
 
 /**
- * 每次打开项目自动提取仓库远程变动 <br>
- * <a href="https://plugins.jetbrains.com/docs/intellij/plugin-components.html#project-open">project-open</a>,
+ * 每次打开项目自动提取仓库远程变动
+ *
+ * [project-open](https://plugins.jetbrains.com/docs/intellij/plugin-components.html#project-open),
  * Implementation in Kotlin is required because Java doesn't support suspending functions.
  */
 class GitFetchProjectActivity : ProjectActivity {
