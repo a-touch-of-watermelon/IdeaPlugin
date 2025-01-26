@@ -16,7 +16,7 @@ stages:
         jdkVersion: '17'
         gradleVersion: '4.4'
         commands:
-          - dnf install findutils #xargs命令缺失
+          - dnf -y install findutils #xargs命令缺失
           - chmod +x ./gradlew
           - ./gradlew buildPlugin
         artifacts:
