@@ -27,7 +27,7 @@ stages:
           - ~/.gradle
         notify: []
         strategy:
-          retry: '3'
+          retry: '2'
       - step: publish@general_artifacts
         name: publish_general_artifacts
         displayName: 上传制品
