@@ -24,10 +24,10 @@ stages:
             path:
               - ./build/distributions
         caches:
-          - ~/.gradle/caches
+          - ~/.gradle
         notify: []
         strategy:
-          retry: '0'
+          retry: '3'
       - step: publish@general_artifacts
         name: publish_general_artifacts
         displayName: 上传制品
