@@ -2,10 +2,6 @@ group = providers.gradleProperty("pluginGroup").get()
 version = providers.gradleProperty("pluginVersion").get()
 
 repositories {
-    maven {
-        url = uri(providers.gradleProperty("aliyunRepositories"))
-        isAllowInsecureProtocol = true
-    }
     mavenCentral()
     // IntelliJ Platform Gradle Plugin Repositories Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-repositories-extension.html
     intellijPlatform {//与dependencies块中的intellijPlatform块结合使用
