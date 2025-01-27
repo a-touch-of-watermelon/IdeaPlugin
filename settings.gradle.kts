@@ -1,6 +1,10 @@
 //插件开发模版 https://plugins.jetbrains.com/docs/intellij/plugin-github-template.html
 pluginManagement {
     repositories {
+//        maven {
+//            url = uri("http://maven.aliyun.com/nexus/content/repositories/jcenter")
+//            isAllowInsecureProtocol = true
+//        }
         mavenCentral()
         gradlePluginPortal() //Non-core plugins are available from the Gradle Plugin Portal
     }
