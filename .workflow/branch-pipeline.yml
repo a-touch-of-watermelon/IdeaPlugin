@@ -18,7 +18,7 @@ stages:
         commands:
           - dnf -y install findutils #xargs命令缺失
           - chmod +x ./gradlew
-          - ./gradlew build
+          - ./gradlew --debug buildPlugin
         artifacts:
           - name: BUILD_ARTIFACT
             path:
