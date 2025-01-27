@@ -16,8 +16,8 @@ stages:
         jdkVersion: '17'
         gradleVersion: '4.4'
         commands:
-          - tail -fn 100 ./build.gradle.kts
-          - tail -fn 100 ./settings.gradle.kts
+          - cat ./build.gradle.kts
+          - cat ./settings.gradle.kts
           - dnf -y install findutils #xargs命令缺失
           - chmod +x ./gradlew
           - ./gradlew --debug buildPlugin
