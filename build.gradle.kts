@@ -3,7 +3,7 @@ version = providers.gradleProperty("pluginVersion").get()
 
 repositories {
 //    maven {
-//        url = uri("http://maven.aliyun.com/nexus/content/repositories/jcenter")
+//        url = uri(providers.gradleProperty("aliyunRepositories"))
 //        isAllowInsecureProtocol = true
 //    }
     mavenCentral()
