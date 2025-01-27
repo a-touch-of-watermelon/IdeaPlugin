@@ -1,10 +1,10 @@
 //插件开发模版 https://plugins.jetbrains.com/docs/intellij/plugin-github-template.html
 pluginManagement {
     repositories {
-//        maven {
-//            url = uri(providers.gradleProperty("aliyunRepositories"))
-//            isAllowInsecureProtocol = true
-//        }
+        maven {
+            url = uri(providers.gradleProperty("aliyunRepositories"))
+            isAllowInsecureProtocol = true
+        }
         mavenCentral()
         gradlePluginPortal() //Non-core plugins are available from the Gradle Plugin Portal
     }
