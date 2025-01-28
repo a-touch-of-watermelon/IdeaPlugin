@@ -1,0 +1,52 @@
+version: '1.0'
+name: branch-pipeline
+displayName: BranchPipeline
+triggers:
+  trigger: manual
+stages:
+  - name: compile
+    displayName: 编译
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: build@gradle
+        name: build_gradle
+        displayName: Gradle 构建
+        jdkVersion: '17'
+        gradleVersion: '4.4'
+        commands:
+          - dnf -y install findutils #xargs命令缺失
+          - chmod +x ./gradlew
+          - ./gradlew --debug buildPlugin
+        artifacts:
+          - name: BUILD_ARTIFACT
+            path:
+              - ./build/distributions
+        caches:
+          - ~/.gradle
+        notify: []
+        strategy:
+          retry: '2'
+      - step: publish@general_artifacts
+        name: publish_general_artifacts
+        displayName: 上传制品
+        dependArtifact: BUILD_ARTIFACT
+        artifactName: output
+        notify: []
+        strategy: {}
+        dependsOn: build_gradle
+  - name: release
+    displayName: 发布
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: publish@release_artifacts
+        name: publish_release_artifacts
+        displayName: 发布
+        dependArtifact: output
+        version: 1.0.0.0
+        autoIncrement: true
+        notify: []
+        strategy: {}
