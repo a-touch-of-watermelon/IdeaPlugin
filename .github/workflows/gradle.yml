@@ -1,5 +1,6 @@
 # This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+# Workflow syntax for GitHub Actions https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
 
 name: CI with Gradle
 
@@ -27,8 +28,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew buildPlugin
+        run: chmod +x ./gradlew && ./gradlew buildPlugin
 
+      #
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
