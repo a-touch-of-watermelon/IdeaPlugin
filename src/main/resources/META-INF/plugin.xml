@@ -25,11 +25,12 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.java</depends>
     <depends>Git4Idea</depends>
+    <depends>Subversion</depends>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <backgroundPostStartupActivity implementation="me.watermelon.startup.GitFetchProjectActivity" order="last"/>
+        <backgroundPostStartupActivity implementation="me.watermelon.startup.VcsFetchProjectActivity" order="last"/>
     </extensions>
 
     <actions>
