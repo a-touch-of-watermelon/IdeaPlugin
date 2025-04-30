@@ -1,22 +1,30 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>me.watermelon.IdeaPlugin</id>
+    <id>me.watermelon.a-touch-of-watermelon</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Watermelon</name>
+    <name>A-Touch-of-Watermelon</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="1945516094@qq.com">watermelon</vendor>
+    <vendor email="1945516094@qq.com">a-touch-of-watermelon</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-        西瓜一抹的插件<br>
-        <em>自己做一些小功能用，也有益于提升研发能力</em>
-        <li>打开项目后，自动拉取所有远程一次</li>
+        A plugin of a-touch-of-watermelon,the functions are as follows:
+        <ul>
+            <li>after opening the project, automatically pull all remotes once</li>
+            <li>more features in development...</li>
+        </ul>
+        <br><br>
+        西瓜一抹的插件，功能如下：
+        <ul>
+            <li>打开项目后，自动拉取所有远程一次</li>
+            <li>更多功能开发中。。。</li>
+        </ul>
       ]]>
     </description>
 

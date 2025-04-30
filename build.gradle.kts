@@ -14,7 +14,7 @@ plugins {
     // The plugin adds many dependency configurations, such as 'implementation', 'testImplementation' and so on for dependencies,
     //   https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management。
     id("java")
-    alias(libs.plugins.kotlin) // Kotlin support；也已使用【kotlin("jvm")】声明(settings.gradle.kts中定义好了版本)，一种Kotlin DSL的扩展写法
+    alias(libs.plugins.kotlin) // Kotlin support；也可使用【kotlin("jvm")】声明(settings.gradle.kts中定义好了版本)，一种Kotlin DSL的扩展写法
     alias(libs.plugins.intelliJPlatform) // IntelliJ Platform Gradle Plugin；也可使用常规方式【id("org.jetbrains.intellij.platform") version "2.1.0"】声明
 }
 
@@ -34,6 +34,8 @@ dependencies {
         plugins(providers.gradleProperty("platformPlugins").map { it.split(',') })
 
         instrumentationTools()//if not,execution failed for task ':instrumentCode'.
+
+        zipSigner()//插件签名使用 Marketplace ZIP Signer executable
     }
     //implementation: Dependencies required for both compilation and runtime.
     //implementation(kotlin("stdlib")) //[intellijIdeaCommunity]依赖中已含有
@@ -48,6 +50,16 @@ intellijPlatform {
             sinceBuild = providers.gradleProperty("pluginSinceBuild")
             untilBuild = providers.gradleProperty("pluginUntilBuild")
         }
+    }
+
+    signing {
+        password = providers.environmentVariable("PRIVATE_KEY_PASSWORD")
+        privateKeyFile = providers.environmentVariable("PRIVATE_KEY_FILE").map { file(it) }
+        certificateChainFile = providers.environmentVariable("CERTIFICATE_CHAIN_FILE").map { file(it) }
+    }
+
+    publishing {
+        token = providers.environmentVariable("PUBLISH_TOKEN")
     }
 }
 
