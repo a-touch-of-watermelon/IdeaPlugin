@@ -16,13 +16,13 @@
     <description><![CDATA[
         A plugin of a-touch-of-watermelon,the functions are as follows:
         <ul>
-            <li>after opening the project, automatically pull all remotes once</li>
+            <li>after opening the project, automatically pull all remotes once(support git and svn)</li>
             <li>more features in development...</li>
         </ul>
-        <br><br>
+        <br>
         西瓜一抹的插件，功能如下：
         <ul>
-            <li>打开项目后，自动拉取所有远程一次</li>
+            <li>打开项目后，自动拉取所有远程一次（支持git和svn）</li>
             <li>更多功能开发中。。。</li>
         </ul>
       ]]>
