@@ -20,7 +20,7 @@
             <li>after opening the project, automatically check for updates of the IDE and plugins once</li>
             <li>more features in development...</li>
         </ul>
-
+        <br>
         西瓜一抹的插件，功能如下：
         <ul>
             <li>打开项目后，自动获取所有仓库远程变动一次（支持git和svn）</li>
