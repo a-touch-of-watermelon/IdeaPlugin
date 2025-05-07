@@ -1,7 +1,5 @@
 package me.watermelon.startup;
 
-import com.intellij.openapi.application.Application;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vcs.AbstractVcs;
@@ -12,14 +10,18 @@ import git4idea.GitVcs;
 import git4idea.fetch.GitFetchResult;
 import git4idea.fetch.GitFetchSupport;
 import git4idea.repo.GitRepository;
+import me.watermelon.util.CommonUtil;
 import org.jetbrains.idea.svn.SvnVcs;
 
 import java.util.Collection;
 
+/**
+ * 获取所有仓库远程变动，目前仅支持git和svn
+ */
 class VcsFetchProject {
 
     //https://plugins.jetbrains.com/docs/intellij/ide-infrastructure.html#logging
-    public static final Logger LOG = Logger.getInstance(VcsFetchProject.class);
+    private static final Logger LOG = Logger.getInstance(VcsFetchProject.class);
 
     static void execute(Project project) {
         boolean gitFlag = false;
@@ -40,24 +42,17 @@ class VcsFetchProject {
                 Collection<GitRepository> repositories = GitUtil.getRepositories(project);
                 GitFetchResult gitFetchResult = gitFetchSupport.fetchAllRemotes(repositories);
                 gitFetchResult.showNotification();
-                LOG.info("Git自动刷新获取所有仓库远程变动-成功");
+                LOG.info("Git获取所有仓库远程变动-成功");
             };
-            executeOnPooledThread(runnable);
+            CommonUtil.executeOnPooledThread(runnable);
         }
 
         if (svnFlag) {
             Runnable runnable = () -> {
                 RefreshIncomingChangesAction.doRefresh(project);
-                LOG.info("SVN自动刷新获取所有仓库远程变动-成功");
+                LOG.info("SVN获取所有仓库远程变动-成功");
             };
-            executeOnPooledThread(runnable);
-        }
-    }
-
-    private static void executeOnPooledThread(Runnable runnable) {
-        Application application = ApplicationManager.getApplication();
-        if (runnable != null) {
-            application.executeOnPooledThread(runnable);
+            CommonUtil.executeOnPooledThread(runnable);
         }
     }
 

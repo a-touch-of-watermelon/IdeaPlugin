@@ -16,13 +16,15 @@
     <description><![CDATA[
         A plugin of a-touch-of-watermelon,the functions are as follows:
         <ul>
-            <li>after opening the project, automatically pull all remotes once(support git and svn)</li>
+            <li>after opening the project, automatically fetch all remote changes from all repositories once(support git and svn)</li>
+            <li>after opening the project, automatically check for updates of the IDE and plugins once</li>
             <li>more features in development...</li>
         </ul>
         <br>
         西瓜一抹的插件，功能如下：
         <ul>
-            <li>打开项目后，自动拉取所有远程一次（支持git和svn）</li>
+            <li>打开项目后，自动获取所有仓库远程变动一次（支持git和svn）</li>
+            <li>打开项目后，自动检查IDE和插件的更新一次</li>
             <li>更多功能开发中。。。</li>
         </ul>
       ]]>
@@ -30,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>更新插件logo</li>
+            <li>打开项目后，自动检查IDE和插件的更新一次</li>
         </ul>
       ]]>
     </change-notes>
@@ -45,7 +47,7 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <backgroundPostStartupActivity implementation="me.watermelon.startup.VcsFetchProjectActivity" order="last"/>
+        <backgroundPostStartupActivity implementation="me.watermelon.startup.CustomProjectActivity" order="last"/>
     </extensions>
 
     <actions>
