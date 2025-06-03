@@ -1,0 +1,2 @@
+在使用IDEA的过程中，想要一些额外的功能，便开发了一个[IDEA插件](https://gitee.com/link?target=https%3A%2F%2Fplugins.jetbrains.com%2Fplugin%2F27241-a-touch-of-watermelon)
+来实现，具体功能可点击插件链接进行查看。
