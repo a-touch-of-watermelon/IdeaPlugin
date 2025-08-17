@@ -11,8 +11,10 @@ import git4idea.fetch.GitFetchResult;
 import git4idea.fetch.GitFetchSupport;
 import git4idea.repo.GitRepository;
 import me.watermelon.util.CommonUtil;
+import org.apache.commons.lang3.ThreadUtils;
 import org.jetbrains.idea.svn.SvnVcs;
 
+import java.time.Duration;
 import java.util.Collection;
 
 /**
@@ -38,6 +40,8 @@ class VcsFetchProject {
 
         if (gitFlag) {
             Runnable runnable = () -> {
+                ThreadUtils.sleepQuietly(Duration.ofSeconds(5));//睡眠5秒，等待git初始化完成
+                
                 GitFetchSupport gitFetchSupport = GitFetchSupport.fetchSupport(project);
                 Collection<GitRepository> repositories = GitUtil.getRepositories(project);
                 GitFetchResult gitFetchResult = gitFetchSupport.fetchAllRemotes(repositories);

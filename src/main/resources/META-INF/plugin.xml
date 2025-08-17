@@ -8,20 +8,20 @@
     <name>A-Touch-of-Watermelon</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="1945516094@qq.com">a-touch-of-watermelon</vendor>
+    <vendor email="1945516094@qq.com">西瓜一抹</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-        A plugin of a-touch-of-watermelon,the functions are as follows:
+        A-Touch-of-Watermelon plugin,the functions are as follows:
         <ul>
             <li>after opening the project, automatically fetch all remote changes from all repositories once(support git and svn)</li>
             <li>after opening the project, automatically check for updates of the IDE and plugins once</li>
             <li>more features in development...</li>
         </ul>
         <br>
-        西瓜一抹的插件，功能如下：
+        西瓜一抹插件，功能如下：
         <ul>
             <li>打开项目后，自动获取所有仓库远程变动一次（支持git和svn）</li>
             <li>打开项目后，自动检查IDE和插件的更新一次</li>
@@ -32,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>打开项目后，自动检查IDE和插件的更新一次</li>
+            <li>减少【maxThreads must be >=1 but got: 0】异常触发</li>
         </ul>
       ]]>
     </change-notes>
