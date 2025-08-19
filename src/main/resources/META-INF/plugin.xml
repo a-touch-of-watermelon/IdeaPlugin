@@ -48,6 +48,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <backgroundPostStartupActivity implementation="me.watermelon.startup.CustomProjectActivity" order="last"/>
+        <vcsStartupActivity implementation="me.watermelon.startup.CustomVcsStartupActivity"/>
     </extensions>
 
     <actions>
