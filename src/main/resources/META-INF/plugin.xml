@@ -32,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>减少【maxThreads must be >=1 but got: 0】异常触发</li>
+            <li>修复【maxThreads must be >=1 but got: 0】异常</li>
         </ul>
       ]]>
     </change-notes>
@@ -48,6 +48,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <backgroundPostStartupActivity implementation="me.watermelon.startup.CustomProjectActivity" order="last"/>
+        <vcsStartupActivity implementation="me.watermelon.startup.CustomVcsStartupActivity"/>
     </extensions>
 
     <actions>

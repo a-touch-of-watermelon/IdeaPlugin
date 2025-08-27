@@ -11,8 +11,6 @@ import com.intellij.openapi.startup.ProjectActivity
 class CustomProjectActivity : ProjectActivity {
 
     override suspend fun execute(project: Project) {
-        VcsFetchProject.execute(project)
-
         CheckUpdateProject.execute(project)
     }
 

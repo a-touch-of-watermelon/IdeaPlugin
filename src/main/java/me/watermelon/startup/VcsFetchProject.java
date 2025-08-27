@@ -40,8 +40,6 @@ class VcsFetchProject {
 
         if (gitFlag) {
             Runnable runnable = () -> {
-                ThreadUtils.sleepQuietly(Duration.ofSeconds(5));//睡眠5秒，等待git初始化完成
-                
                 GitFetchSupport gitFetchSupport = GitFetchSupport.fetchSupport(project);
                 Collection<GitRepository> repositories = GitUtil.getRepositories(project);
                 GitFetchResult gitFetchResult = gitFetchSupport.fetchAllRemotes(repositories);
