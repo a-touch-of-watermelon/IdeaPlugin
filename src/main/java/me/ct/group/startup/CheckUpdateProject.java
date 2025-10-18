@@ -1,9 +1,9 @@
-package me.watermelon.startup;
+package me.ct.group.startup;
 
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.updateSettings.impl.UpdateChecker;
-import me.watermelon.util.CommonUtil;
+import me.ct.group.util.CommonUtil;
 
 /**
  * 检查IDE和插件的更新

@@ -1,4 +1,4 @@
-package me.watermelon.startup;
+package me.ct.group.startup;
 
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
@@ -10,11 +10,9 @@ import git4idea.GitVcs;
 import git4idea.fetch.GitFetchResult;
 import git4idea.fetch.GitFetchSupport;
 import git4idea.repo.GitRepository;
-import me.watermelon.util.CommonUtil;
-import org.apache.commons.lang3.ThreadUtils;
+import me.ct.group.util.CommonUtil;
 import org.jetbrains.idea.svn.SvnVcs;
 
-import java.time.Duration;
 import java.util.Collection;
 
 /**

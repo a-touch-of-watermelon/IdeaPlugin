@@ -1,4 +1,4 @@
-package me.watermelon.startup
+package me.ct.group.startup
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.ProjectActivity

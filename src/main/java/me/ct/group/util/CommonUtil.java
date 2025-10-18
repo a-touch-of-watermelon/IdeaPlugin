@@ -1,4 +1,4 @@
-package me.watermelon.util;
+package me.ct.group.util;
 
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
