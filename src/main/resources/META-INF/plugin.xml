@@ -32,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>变更插件图标等相关信息</li>
+            <li>插件图标在IDEA插件市场里显示异常问题解决</li>
         </ul>
       ]]>
     </change-notes>
