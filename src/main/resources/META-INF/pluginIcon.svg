@@ -1,7 +1,5 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="256" height="256" rx="32" fill="red"/>
+    <rect width="256" height="256" rx="45" fill="red"/>
 
-    <text x="128" y="155" text-anchor="middle" fill="yellow" font-family="Arial, sans-serif" font-size="100" font-weight="bold">
-        Auto
-    </text>
+    <text x="16" y="160" fill="yellow" font-family="Arial, sans-serif" font-size="100" font-weight="bold">Auto</text>
 </svg>
