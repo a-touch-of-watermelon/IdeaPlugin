@@ -17,14 +17,14 @@
         The plugin functions are as follows:
         <ul>
             <li>after opening the project, automatically fetch all remote changes from all repositories once(support git and svn)</li>
-            <li>after opening the project, automatically check for updates of the IDE and plugins once</li>
+            <li>open the IDE and after entering the welcome screen, automatically check for updates of the IDE and plugins once</li>
             <li>more features in development...</li>
         </ul>
         <br>
         插件功能如下：
         <ul>
             <li>打开项目后，自动获取所有仓库远程变动一次（支持git和svn）</li>
-            <li>打开项目后，自动检查IDE和插件的更新一次</li>
+            <li>打开IDE，进入欢迎界面后，自动检查IDE和插件的更新一次</li>
             <li>更多功能开发中。。。</li>
         </ul>
       ]]>
@@ -32,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>插件图标在IDEA插件市场里显示异常问题解决</li>
+            <li>IDE和插件的自动检查更新调整到IDE打开后的欢迎界面里</li>
         </ul>
       ]]>
     </change-notes>
@@ -44,13 +44,14 @@
     <depends>Git4Idea</depends>
     <depends>Subversion</depends>
 
-    <!-- Extension points defined by the plugin.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <backgroundPostStartupActivity implementation="me.ct.group.startup.CustomProjectActivity" order="last"/>
-        <vcsStartupActivity implementation="me.ct.group.startup.CustomVcsStartupActivity"/>
+        <postStartupActivity implementation="me.ct.group.activity.CtGroupProjectActivity"/>
     </extensions>
 
+    <applicationListeners>
+        <listener class="me.ct.group.listener.CheckUpdate" topic="com.intellij.ide.AppLifecycleListener"/>
+    </applicationListeners>
+    
     <actions>
     </actions>
 </idea-plugin>
