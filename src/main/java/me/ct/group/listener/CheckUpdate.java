@@ -3,6 +3,7 @@ package me.ct.group.listener;
 import com.intellij.ide.AppLifecycleListener;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.updateSettings.impl.UpdateChecker;
+import com.intellij.openapi.updateSettings.impl.UpdateSettings;
 
 /**
  * 检查IDE和插件的更新
@@ -13,7 +14,10 @@ public class CheckUpdate implements AppLifecycleListener {
 
     @Override
     public void welcomeScreenDisplayed() {
-        UpdateChecker.updateAndShowResult(null);
+        UpdateSettings settingsCopy = UpdateSettings.getInstance();
+        settingsCopy.setCheckNeeded(true);
+        settingsCopy.setPluginsCheckNeeded(true);
+        UpdateChecker.updateAndShowResult(null, settingsCopy);
         LOG.info("进行IDE和插件的检查更新-成功");
     }
     

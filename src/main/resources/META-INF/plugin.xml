@@ -32,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>IDE和插件的自动检查更新调整到IDE打开后的欢迎界面里</li>
+            <li>解决【当更新设置未勾选时，自动检查IDE和插件更新无效】问题</li>
         </ul>
       ]]>
     </change-notes>
