@@ -32,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>解决【当更新设置未勾选时，自动检查IDE和插件更新无效】问题</li>
+            <li>解决【自动检查IDE和插件更新修改了用户的更新设置】问题</li>
         </ul>
       ]]>
     </change-notes>
