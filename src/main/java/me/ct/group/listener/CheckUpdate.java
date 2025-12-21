@@ -14,10 +14,14 @@ public class CheckUpdate implements AppLifecycleListener {
 
     @Override
     public void welcomeScreenDisplayed() {
-        UpdateSettings settingsCopy = UpdateSettings.getInstance();
-        settingsCopy.setCheckNeeded(true);
-        settingsCopy.setPluginsCheckNeeded(true);
-        UpdateChecker.updateAndShowResult(null, settingsCopy);
+        UpdateSettings updateSettings = UpdateSettings.getInstance();
+        
+        UpdateSettings updateSettingsCopy = new UpdateSettings();//不改动用户设置
+        updateSettingsCopy.getState().copyFrom(updateSettings.getState());
+        updateSettingsCopy.setCheckNeeded(true);
+        updateSettingsCopy.setPluginsCheckNeeded(true);
+        
+        UpdateChecker.updateAndShowResult(null, updateSettingsCopy);
         LOG.info("进行IDE和插件的检查更新-成功");
     }
     
