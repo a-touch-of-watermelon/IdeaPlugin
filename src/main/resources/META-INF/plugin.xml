@@ -16,15 +16,15 @@
     <description><![CDATA[
         The plugin functions are as follows:
         <ul>
-            <li>after opening the project, automatically fetch all remote changes from all repositories once(support git and svn)</li>
-            <li>open the IDE and after entering the welcome screen, automatically check for updates of the IDE and plugins once</li>
+            <li>every time after opening the project, automatically fetch all remote changes from all repositories once(support git and svn)</li>
+            <li>open the IDE and after entering the welcome screen, automatically check for updates of the IDE and plugins once(once a day)</li>
             <li>more features in development...</li>
         </ul>
         <br>
         插件功能如下：
         <ul>
-            <li>打开项目后，自动获取所有仓库远程变动一次（支持git和svn）</li>
-            <li>打开IDE，进入欢迎界面后，自动检查IDE和插件的更新一次</li>
+            <li>每次打开项目后，自动获取所有仓库远程变动一次（支持git和svn）</li>
+            <li>打开IDE，进入欢迎界面后，自动检查IDE和插件的更新一次（一天一次）</li>
             <li>更多功能开发中。。。</li>
         </ul>
       ]]>
@@ -32,7 +32,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>解决【自动检查IDE和插件更新修改了用户的更新设置】问题</li>
+            <li>[自动检查IDE和插件更新]修改为一天只检查一次</li>
         </ul>
       ]]>
     </change-notes>
