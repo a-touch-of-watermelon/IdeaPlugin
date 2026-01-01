@@ -27,12 +27,16 @@
             <li>打开IDE，进入欢迎界面后，自动检查IDE和插件的更新一次（一天一次）</li>
             <li>更多功能开发中。。。</li>
         </ul>
+        <br>
+        plugin setting location: File | Settings | Tools | Auto Some
+        <br>
+        插件设置位置：文件 | 设置 | 工具 | Auto Some
       ]]>
     </description>
 
     <change-notes><![CDATA[
         <ul>
-            <li>[自动检查IDE和插件更新]修改为一天只检查一次</li>
+            <li>为自动操作添加设置选项</li>
         </ul>
       ]]>
     </change-notes>
@@ -45,7 +49,11 @@
     <depends>Subversion</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <postStartupActivity implementation="me.ct.group.activity.CtGroupProjectActivity"/>
+        <postStartupActivity implementation="me.ct.group.activity.ProjectActivity"/>
+        
+        <applicationService serviceImplementation="me.ct.group.setting.Setting"/>
+        <applicationConfigurable parentId="tools" instance="me.ct.group.setting.SettingConfig"
+                                 id="me.ct.group.setting.SettingConfig" displayName="Auto Some"/>
     </extensions>
 
     <applicationListeners>

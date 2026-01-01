@@ -10,9 +10,11 @@ import git4idea.GitVcs;
 import git4idea.fetch.GitFetchResult;
 import git4idea.fetch.GitFetchSupport;
 import git4idea.repo.GitRepository;
+import me.ct.group.setting.Setting;
 import org.jetbrains.idea.svn.SvnVcs;
 
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * 获取所有项目仓库远程变动，目前仅支持git和svn
@@ -23,6 +25,11 @@ public class VcsFetch {
     private static final Logger LOG = Logger.getInstance(VcsFetch.class);
 
     public static void execute(Project project) {
+        Setting.State state = Objects.requireNonNull(Setting.getInstance().getState());
+        if (!state.vscFetchStatus) {
+            return;
+        }
+        
         boolean gitFlag = false;
         boolean svnFlag = false;
         ProjectLevelVcsManager projectLevelVcsManager = ProjectLevelVcsManager.getInstance(project);
