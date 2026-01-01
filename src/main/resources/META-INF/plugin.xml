@@ -46,6 +46,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <postStartupActivity implementation="me.ct.group.activity.CtGroupProjectActivity"/>
+        
+        <applicationService serviceImplementation="me.ct.group.setting.PluginSetting"/>
+        <applicationConfigurable parentId="tools" instance="me.ct.group.setting.PluginConfigurable"
+                id="me.ct.group.setting.PluginConfigurable" displayName="Auto Some"/>
     </extensions>
 
     <applicationListeners>

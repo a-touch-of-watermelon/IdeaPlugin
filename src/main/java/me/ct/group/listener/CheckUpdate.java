@@ -6,8 +6,10 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.updateSettings.impl.UpdateChecker;
 import com.intellij.openapi.updateSettings.impl.UpdateSettings;
 import com.intellij.util.text.DateFormatUtil;
+import me.ct.group.setting.PluginSetting;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * 检查IDE和插件的更新
@@ -20,6 +22,11 @@ public class CheckUpdate implements AppLifecycleListener {
 
     @Override
     public void welcomeScreenDisplayed() {
+        PluginSetting.State state = Objects.requireNonNull(PluginSetting.getInstance().getState());
+        if (!state.checkUpdateStatus) {
+            return;
+        }
+        
         String checkDate = DateFormatUtil.formatDate(new Date());
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
         String lastCheckDate = propertiesComponent.getValue(LAST_CHECK_DATE_KEY);
