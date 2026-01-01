@@ -2,18 +2,19 @@ package me.ct.group.setting;
 
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.util.ui.FormBuilder;
+import me.ct.group.Bundle;
 
 import javax.swing.*;
 
-public class PluginSettingsComponent {
+public class SettingUI {
 
     private final JPanel mainJPanel;
     
-    private final JBCheckBox checkUpdateStatus = new JBCheckBox(PluginBundle.message("setting.checkbox.checkUpdate"));
+    private final JBCheckBox checkUpdateStatus = fixedWidthJBCheckBox(Bundle.message("setting.checkbox.checkUpdate"));
     
-    private final JBCheckBox vscFetchStatus = new JBCheckBox(PluginBundle.message("setting.checkbox.vscFetch"));
+    private final JBCheckBox vscFetchStatus = fixedWidthJBCheckBox(Bundle.message("setting.checkbox.vscFetch"));
 
-    public PluginSettingsComponent() {
+    public SettingUI() {
         mainJPanel = FormBuilder.createFormBuilder()
                 .addComponent(checkUpdateStatus, 1)
                 .addComponent(vscFetchStatus, 1)
@@ -21,12 +22,12 @@ public class PluginSettingsComponent {
                 .getPanel();
     }
 
-    public JPanel getPanel() {
-        return mainJPanel;
+    private JBCheckBox fixedWidthJBCheckBox(String text) {
+        return new JBCheckBox("<html><body style='width: 430px'>" + text + "</body></html>");
     }
 
-    public JComponent getPreferredFocusedComponent() {
-        return checkUpdateStatus;
+    public JPanel getPanel() {
+        return mainJPanel;
     }
 
     public boolean getCheckUpdateStatus() {

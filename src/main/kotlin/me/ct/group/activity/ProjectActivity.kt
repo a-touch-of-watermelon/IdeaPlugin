@@ -10,7 +10,7 @@ import me.ct.group.project.VcsFetch
  * [project-open](https://plugins.jetbrains.com/docs/intellij/plugin-components.html#project-open),
  * Implementation in Kotlin is required because Java doesn't support suspending functions.
  */
-class CtGroupProjectActivity : ProjectActivity {
+class ProjectActivity : ProjectActivity {
 
     override suspend fun execute(project: Project) {
         ProjectLevelVcsManager.getInstance(project).runAfterInitialization {

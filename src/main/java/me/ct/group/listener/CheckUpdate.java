@@ -6,7 +6,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.updateSettings.impl.UpdateChecker;
 import com.intellij.openapi.updateSettings.impl.UpdateSettings;
 import com.intellij.util.text.DateFormatUtil;
-import me.ct.group.setting.PluginSetting;
+import me.ct.group.setting.Setting;
 
 import java.util.Date;
 import java.util.Objects;
@@ -22,7 +22,7 @@ public class CheckUpdate implements AppLifecycleListener {
 
     @Override
     public void welcomeScreenDisplayed() {
-        PluginSetting.State state = Objects.requireNonNull(PluginSetting.getInstance().getState());
+        Setting.State state = Objects.requireNonNull(Setting.getInstance().getState());
         if (!state.checkUpdateStatus) {
             return;
         }

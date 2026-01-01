@@ -10,7 +10,7 @@ import git4idea.GitVcs;
 import git4idea.fetch.GitFetchResult;
 import git4idea.fetch.GitFetchSupport;
 import git4idea.repo.GitRepository;
-import me.ct.group.setting.PluginSetting;
+import me.ct.group.setting.Setting;
 import org.jetbrains.idea.svn.SvnVcs;
 
 import java.util.Collection;
@@ -25,7 +25,7 @@ public class VcsFetch {
     private static final Logger LOG = Logger.getInstance(VcsFetch.class);
 
     public static void execute(Project project) {
-        PluginSetting.State state = Objects.requireNonNull(PluginSetting.getInstance().getState());
+        Setting.State state = Objects.requireNonNull(Setting.getInstance().getState());
         if (!state.vscFetchStatus) {
             return;
         }

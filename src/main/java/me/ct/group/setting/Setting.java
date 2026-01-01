@@ -7,10 +7,10 @@ import com.intellij.openapi.components.Storage;
 import org.jetbrains.annotations.NotNull;
 
 @State(
-        name = "me.ct.group.setting.PluginSetting",
-        storages = @Storage("AutoSomeSettingsPlugin.xml")
+        name = "me.ct.group.setting.Setting",
+        storages = @Storage("AutoSomeSetting.xml")
 )
-public class PluginSetting implements PersistentStateComponent<PluginSetting.State> {
+public class Setting implements PersistentStateComponent<Setting.State> {
 
     public static class State {
         public boolean checkUpdateStatus = true;
@@ -19,8 +19,8 @@ public class PluginSetting implements PersistentStateComponent<PluginSetting.Sta
 
     private State state = new State();
 
-    public static PluginSetting getInstance() {
-        return ApplicationManager.getApplication().getService(PluginSetting.class);
+    public static Setting getInstance() {
+        return ApplicationManager.getApplication().getService(Setting.class);
     }
 
     @Override

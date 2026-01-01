@@ -1,4 +1,4 @@
-package me.ct.group.setting;
+package me.ct.group;
 
 import com.intellij.DynamicBundle;
 import org.jetbrains.annotations.Nls;
@@ -6,14 +6,12 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.PropertyKey;
 
-import java.util.function.Supplier;
-
-public class PluginBundle {
+public class Bundle {
 
     @NonNls
-    private static final String BUNDLE = "messages.PluginBundle";
+    private static final String BUNDLE = "messages.Bundle";
 
-    private static final DynamicBundle DYNAMIC_BUNDLE = new DynamicBundle(PluginBundle.class, BUNDLE);
+    private static final DynamicBundle DYNAMIC_BUNDLE = new DynamicBundle(Bundle.class, BUNDLE);
 
     public static @NotNull @Nls String message(
             @NotNull @PropertyKey(resourceBundle = BUNDLE) String key,
