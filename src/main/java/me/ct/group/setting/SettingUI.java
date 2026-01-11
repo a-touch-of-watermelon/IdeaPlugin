@@ -2,7 +2,7 @@ package me.ct.group.setting;
 
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.util.ui.FormBuilder;
-import me.ct.group.Bundle;
+import me.ct.group.util.MessageBundle;
 
 import javax.swing.*;
 
@@ -10,9 +10,9 @@ public class SettingUI {
 
     private final JPanel mainJPanel;
     
-    private final JBCheckBox checkUpdateStatus = fixedWidthJBCheckBox(Bundle.message("setting.checkbox.checkUpdate"));
+    private final JBCheckBox checkUpdateStatus = fixedWidthJBCheckBox(MessageBundle.message("setting.checkbox.checkUpdate"));
     
-    private final JBCheckBox vscFetchStatus = fixedWidthJBCheckBox(Bundle.message("setting.checkbox.vscFetch"));
+    private final JBCheckBox vscFetchStatus = fixedWidthJBCheckBox(MessageBundle.message("setting.checkbox.vscFetch"));
 
     public SettingUI() {
         mainJPanel = FormBuilder.createFormBuilder()
