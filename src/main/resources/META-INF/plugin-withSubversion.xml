@@ -1,0 +1,5 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="me.ct.group.activity.vcs.SVNProjectActivity"/>
+    </extensions>
+</idea-plugin>

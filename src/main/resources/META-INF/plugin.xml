@@ -14,18 +14,16 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-        The plugin functions are as follows:
+        The plugin functions are as follows (each item supports setting whether to execute or not):
         <ul>
-            <li>every time after opening the project, automatically fetch all remote changes from all repositories once(support git and svn)</li>
+            <li>every time after opening the project, automatically fetch all remote changes from all repositories once(supports git and svn, but relies on the corresponding version control plugins)</li>
             <li>open the IDE and after entering the welcome screen, automatically check for updates of the IDE and plugins once(once a day)</li>
-            <li>more features in development...</li>
         </ul>
         <br>
-        插件功能如下：
+        插件功能如下（每项都支持设置是否执行）：
         <ul>
-            <li>每次打开项目后，自动获取所有仓库远程变动一次（支持git和svn）</li>
+            <li>每次打开项目后，自动获取所有仓库远程变动一次（支持git和svn，需要依赖对应的版本控制插件）</li>
             <li>打开IDE，进入欢迎界面后，自动检查IDE和插件的更新一次（一天一次）</li>
-            <li>更多功能开发中。。。</li>
         </ul>
         <br>
         plugin setting location: File | Settings | Tools | Auto Some
@@ -36,7 +34,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>为自动操作添加设置选项</li>
+            <li>将对版本控制插件的依赖设计为可选依赖</li>
         </ul>
       ]]>
     </change-notes>
@@ -45,15 +43,17 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.java</depends>
-    <depends>Git4Idea</depends>
-    <depends>Subversion</depends>
+    <depends optional="true" config-file="plugin-withGit4Idea.xml">Git4Idea</depends>
+    <depends optional="true" config-file="plugin-withSubversion.xml">Subversion</depends>
+
+    <resource-bundle>messages.Bundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <postStartupActivity implementation="me.ct.group.activity.ProjectActivity"/>
-        
         <applicationService serviceImplementation="me.ct.group.setting.Setting"/>
         <applicationConfigurable parentId="tools" instance="me.ct.group.setting.SettingConfig"
                                  id="me.ct.group.setting.SettingConfig" displayName="Auto Some"/>
+
+        <!--<notificationGroup id="AutoSome Notification Group" displayType="BALLOON" key="notify.group.name"/>-->
     </extensions>
 
     <applicationListeners>
